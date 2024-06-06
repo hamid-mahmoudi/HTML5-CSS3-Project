@@ -1,0 +1,1118 @@
+@font-face {
+  font-family: Rubik;
+  src: url(../../fonts/Rubik/Rubik-Regular.ttf);
+}
+@font-face {
+  font-family: Jost;
+  src: url(../../assets/fonts/Jost/jost.medium.ttf);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --standard-transition: background 0.2s linear;
+  --standard-border: 2px solid white;
+  --standard-color: rgba(255, 255, 255, 0);
+  --dark-black-blue: #2a3e5f;
+  --gray: #777777;
+  --light-green: #9ecfbd;
+  --orange: #f15b43;
+  --green: #65c9bb;
+}
+/* animations */
+@keyframes buttonCover {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    width: 100%;
+  }
+}
+@keyframes slide-top {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes transBtnAnim {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes revTransBtnAnim {
+  0% {
+    width: 100%;
+    display: block;
+  }
+  100% {
+    width: 0;
+    display: none;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Rubik";
+  color: white;
+}
+/* header */
+header .container .row {
+  align-items: center;
+  padding: 0.7rem 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+header .container .row .col-8,
+.row .col-4,
+.row,
+.row .col-8 nav ul {
+  display: flex;
+  align-items: center;
+}
+header .container .row .col-8 h2 {
+  font-size: 0;
+  background-image: url(../../images/gallery/logo.png);
+  width: 15.8rem;
+  height: 50px;
+  background-repeat: no-repeat;
+  margin-left: 2rem;
+}
+header .container .row .col-8 nav {
+  width: 100%;
+}
+header .container .row .col-8 nav .navbar {
+  margin: 0 2.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+}
+header .container .row .col-8 nav .navbar li:hover a {
+  color: var(--green);
+}
+header .container .row .col-8 nav .navbar li a {
+  color: white;
+  transition: all 0.4s ease;
+}
+header .container .row .col-8 nav .navbar .innerNav {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: left;
+  background-color: white;
+  width: 10.5rem;
+  height: 9rem;
+  top: 2rem;
+  right: 2.5rem;
+  padding: 1rem 0;
+  opacity: 0;
+  visibility: hidden;
+}
+header .container .row .col-8 nav .navbar :nth-child(5):hover .innerNav {
+  opacity: 1;
+  visibility: visible;
+}
+header .container .row .col-8 nav .navbar .innerNav li a {
+  display: flex;
+  color: var(--dark-black-blue);
+  text-align: left;
+  width: 8rem;
+}
+header .container .row .col-8 nav .navbar .innerNav li:hover a {
+  color: var(--green);
+}
+header .container .row .col-4 {
+  display: flex;
+  justify-content: space-around;
+}
+header .container .row .col-4 .headCall {
+  font-weight: 500;
+  color: white;
+}
+header .container .row .col-4 .headCall span {
+  margin-left: 1rem;
+  border-bottom: 2px dotted white;
+  padding-bottom: 4px;
+}
+
+header .container .row .col-4 .donateLink {
+  background-color: var(--orange);
+  color: white;
+  border: 0;
+  width: 13rem;
+  height: 3.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+}
+header .container .row .col-4 .donateLink i {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+header .container .row .col-4 .donateLink:hover {
+  transition: var(--standard-transition);
+  background: none;
+  border: var(--standard-border);
+}
+/* burger menu */
+header .menuBar {
+  background-color: #494949;
+  width: 94%;
+  height: 3.8rem;
+  position: relative;
+  display: none;
+  margin-top: -1.8rem;
+}
+header .menuBar div {
+  width: 6.2rem;
+  height: 2.4rem;
+  border-radius: 4px;
+  background-color: #202020;
+  position: absolute;
+  right: 0.7rem;
+  top: 0.6rem;
+  padding-top: 0.2rem;
+}
+header .menuBar div a {
+  color: white;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+header .menuBar div a i {
+  font-size: 1.5rem;
+  margin: -0.2rem 0 0 0.2rem;
+}
+
+/* header end */
+/* main */
+main .topContainer .middleFirstPageContent {
+  background: url(../../images/gallery/main-pic-homeless-man.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 46rem;
+  position: relative;
+  background-position: 45%;
+}
+main .container .middleFirstPageContent div {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+main .container .middleFirstPageContent div h1 {
+  font-family: "Jost";
+  font-size: 4rem;
+  font-weight: 500;
+  width: 32rem;
+  animation: slide-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: 1s;
+}
+main .container .middleFirstPageContent #topperDiscription {
+  margin-top: -1.5rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color: white;
+  animation: slide-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  width: 28rem;
+}
+main .container .middleFirstPageContent a {
+  background-color: var(--green);
+  display: flex;
+  width: 14rem;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-top: 2rem;
+  animation: slide-top 1.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+main .container .middleFirstPageContent a:hover {
+  transition: var(--standard-transition);
+  border: var(--standard-border);
+  background: none;
+}
+/* first content */
+
+main .container .mainContent {
+  background-color: #fcf2eb;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem;
+  gap: 8rem;
+}
+main .container .mainContent > div {
+  width: 50%;
+}
+main .container .mainContent img {
+  width: 100%;
+  margin: -1rem 0 -1rem 1.5rem;
+}
+main .container .mainContent > :nth-child(2) * {
+  margin: 1rem 0;
+}
+main h2 {
+  color: var(--dark-black-blue);
+  font-size: 46px;
+  font-family: "jost";
+  font-weight: 100;
+}
+main .container p {
+  color: var(--gray);
+}
+main .container .mainContent div .mainParaf {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  padding-top: 1rem;
+}
+main .container .mainContent div span {
+  color: var(--light-green);
+}
+main .container .mainContent div .buttonLinks {
+  display: flex;
+  gap: 1rem;
+}
+/* first content end */
+/* buttons */
+.transButton {
+  display: inline-flex;
+  width: 12rem;
+  height: 4rem;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  border: 2px solid var(--orange);
+  color: var(--orange);
+  position: relative;
+  background-color: transparent;
+  z-index: 1;
+}
+.slidingButton::after {
+  content: " ";
+  width: 100%;
+  height: 100%;
+  background-color: var(--orange);
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: none;
+  animation: revTransBtnAnim 0.6s cubic-bezier(0.5, 1.6, 0.4, 0.7) both;
+}
+.slidingButton:hover,.slidingButton::after  {
+  color: white;
+}
+.slidingButton:hover::after {
+  z-index: 10000;
+  display: block;
+  animation: transBtnAnim 0.6s cubic-bezier(0.5, 1.6, 0.4, 0.7) both;
+  z-index: -1;
+
+}
+.orangeButton {
+  color: white  !important;
+  width: 12rem ;
+  height: 4rem ;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  font-weight: 700 !important;
+  background-color: var(--orange) !important;
+  letter-spacing: 1px !important;
+  text-decoration: none !important;
+}
+.orangeButton:hover {
+  background: none !important;
+  border: 1px solid var(--orange) !important;
+  color: var(--orange) !important;
+  transition: var(--standard-transition) !important;
+
+}
+/* end buttons */
+
+/* second content */
+main .container .reverseMainContent {
+  flex-direction: row-reverse;
+  background-color: white;
+}
+/* second content end*/
+
+/* third content */
+main .container .thirdMainContent {
+  background-color: white;
+  gap: 3rem;
+  padding: 10rem 10rem;
+}
+main .container .thirdMainContent div img {
+  width: 86%;
+}
+/* third content end*/
+
+/* flex images */
+main h3 {
+  color: var(--dark-black-blue);
+  font-size: 1.6rem;
+  font-family: "jost";
+  font-weight: 100;
+  margin-bottom: 0.5rem;
+}
+main .container .flexView {
+  display: flex;
+  gap: 1.5rem;
+}
+main .container .flexView .card {
+  background-color: #f4f2f1;
+  width: 33%;
+}
+main .container .flexView .card .imageCard {
+  width: 100%;
+}
+main .container .flexView .cardContent {
+  padding: 1.5rem 1.5rem 0;
+  line-height: 2rem;
+  position: relative;
+  min-height: 22rem;
+}
+main .container .flexView .cardContent .cardValue {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 2rem;
+  overflow: hidden;
+  margin: 0 auto;
+}
+main .container .flexView .cardContent .cardValue p {
+  color: var(--green);
+  font-weight: 900;
+  font-size: 1.1rem;
+  padding-left: 0.3rem;
+  position: relative;
+}
+main .container .flexView .cardContent .cardValue :nth-child(1)::after {
+  content: "Goal";
+  position: absolute;
+  top: 1.6rem;
+  left: 0.4rem;
+  color: black;
+  font-weight: 100;
+  font-size: 0.8rem;
+}
+main .container .flexView .cardContent .cardValue :nth-child(2)::after {
+  content: "Raised";
+  position: absolute;
+  top: 1.6rem;
+  left: 0.4rem;
+  color: black;
+  font-weight: 100;
+  font-size: 0.8rem;
+}
+main .container .flexView .cardContent .cardValue .orangeButton {
+  width: 10.5rem;
+  height: 3.7rem;
+}
+main .container .flexView .cardContent:hover .orangeButton {
+  background: none;
+  border: 1px solid var(--orange);
+  color: var(--orange);
+  transition: var(--standard-transition);
+}
+/* end flex images */
+/* orange section */
+main .orangeSection {
+  background: url(../../images/section-bg1.webp);
+  background-attachment: fixed;
+  height: 40rem;
+  padding: 4rem;
+}
+main .orangeSection * {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.8rem;
+}
+main .orangeSection ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+main .orangeSection h2 {
+  color: white;
+  margin-bottom: 2rem;
+}
+main .orangeSection ul p {
+  color: white;
+  text-align: center;
+  line-height: 1.5rem;
+}
+main .orangeSection a {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+/* end orange section */
+
+/* moving cards section */
+main .movingSection {
+  display: flex;
+  justify-content: space-around;
+}
+main .movingSection {
+  margin: 4rem auto;
+}
+main .movingSection .movingCards {
+  display: flex;
+  gap: 1.5rem;
+  margin: 4rem;
+}
+main .movingSection .movingCards .movingCard {
+  background-color: #f4f2f1;
+}
+main .movingSection .movingCards .movingCard img {
+  width: 100%;
+}
+main .movingSection .movingCards .movingCard .descriptionMovingSection {
+  padding: 2rem;
+}
+
+main .movingSection .movingCards .movingCard .descriptionMovingSection p {
+  margin: 1rem 0;
+  line-height: 1.5rem;
+}
+main
+  .movingSection
+  .movingCards
+  .movingCard
+  .descriptionMovingSection
+  .transButton {
+  border: none;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+main
+  .movingSection
+  .movingCards
+  .movingCard
+  .descriptionMovingSection
+  .readMoreBtn::before {
+  content: " ";
+  position: absolute;
+  width: 10rem;
+  height: 10px;
+  top: 3.3rem;
+  color: var(--orange);
+}
+.readMoreBtn{
+  border-bottom: 1px var(--orange) solid !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 5px  5px 5px 0px ;
+
+}
+main
+  .movingSection
+  .movingCards
+  .movingCard
+  .descriptionMovingSection
+  .readMoreBtn:hover {
+  padding-left: 1.1rem;
+  letter-spacing: 2px;
+}
+main .movingSection .leftSideMovingSection {
+  margin-left: 5rem;
+}
+main .movingSection .leftSideMovingSection span {
+  color: var(--green);
+}
+main .movingSection .leftSideMovingSection h2 {
+  position: relative;
+  margin-top: 1rem;
+}
+main .movingSection .leftSideMovingSection div a {
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  line-height: 4rem;
+  border-radius: 5%;
+  border: 1px solid #d6d6d6;
+  background-color: transparent;
+  color: #d6d6d6;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+}
+#buttonBox{
+  display: flex;
+  /* gap: 0.5rem; */
+  justify-content: space-around;
+}
+main .movingSection .leftSideMovingSection div .rightButton {
+  margin-left: 0.5rem;
+}
+main .footerMap iframe {
+  width: 100%;
+  height: 31.25rem;
+}
+/* end moving cards section */
+
+/* footer */
+footer {
+  width: 100%;
+  height: 28rem;
+  background-color: var(--dark-black-blue);
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 5rem 6rem 2rem;
+}
+footer * {
+  color: white;
+}
+footer .footerList {
+  display: flex;
+  gap: 4rem;
+}
+footer .footerList .footerCol h3 {
+  margin-bottom: 2rem;
+}
+footer .footerList .footerCol ul li {
+  margin: 1.5rem 0;
+}
+footer .footerList > :nth-child(odd) {
+  width: 65%;
+}
+footer .footerList > :nth-child(even) {
+  width: 30%;
+}
+footer .footerList > :nth-child(3) {
+  margin-right: -3rem;
+}
+footer .footerList .footerCol p {
+  line-height: 1.8rem;
+}
+footer .footerList .footerCol   a {
+  transition: all .5s linear;
+
+}
+footer .footerList .footerCol  a:hover {
+  text-decoration: underline;
+}
+footer .footerList .footerCol  .socialMedia a:hover {
+  text-decoration: none;
+}
+footer .footerList .footerCol .orangeButton {
+  width: 9rem;
+  height: 3rem;
+  font-size: 0.9rem;
+  font-weight: 100;
+  margin: 1rem 0;
+}
+footer .footerList .footerCol .orangeButton:hover {
+  border-color: white;
+  color: white;
+}
+footer .footerList .footerCol .socialMedia {
+  display: flex;
+  width: 60%;
+}
+footer .footerList .footerCol .socialMedia li {
+  width: 24.5%;
+  font-size: 1.65rem;
+}
+footer .footerList .footerCol .socialMedia li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.4rem;
+  width: 3.4rem;
+
+}
+footer .footerList .footerCol .socialMedia li i {
+  transition: all 0.29s linear;
+  text-align: center;
+}
+footer .footerList .footerCol .socialMedia li:hover i {
+  transform: rotateY(180deg);
+  transition: all 0.29s linear;
+}
+footer .footerList .footerCol .socialMedia #iconFb {
+  background-color: #3b5998;
+}
+footer .footerList .footerCol .socialMedia #iconLi {
+  background-color: #0077b5;
+}
+footer .footerList .footerCol .socialMedia #iconIg {
+  background-color: #405de6;
+}
+footer .footerList .footerCol .socialMedia #iconYt {
+  background-color: #f00;
+}
+footer #copyright {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 0.01rem solid #384b70;
+  font-size: 0.9rem;
+}
+footer #copyright .bxs-heart,
+footer #copyright a {
+  color: var(--green);
+}
+footer .backToTop {
+  width: 3.2rem;
+  height: 3.2rem;
+  position: fixed;
+  right: 2rem;
+  bottom: 1rem;
+  background-color: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--dark-black-blue);
+}
+footer .backToTop .bxs-up-arrow-alt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.8rem;
+}
+
+
+/* media queries */
+@media only screen and (max-width: 1200px) {
+  body,
+  html {
+    font-size: 14px;
+  }
+  main .topContainer .middleFirstPageContent {
+    background: url(../../images/gallery/main-pic-homeless-man.jpg);
+    background-position: 50%;
+    /* background-size: 165%; */
+    min-height: 900px !important;
+    background-repeat: no-repeat;
+  }
+  header .container .row .col-4 .headCall {
+    display: none;
+  }
+  header .container .row .col-4 {
+    width: 30%;
+  }
+  header .container .row .col-8 {
+    width: 110%;
+  }
+  header .container .row .col-8 h2 {
+    width: 40%;
+  }
+  main .container .flexView .cardContent .cardValue {
+    gap: 1.5rem;
+  }
+  main .container .flexView .cardContent .cardValue .orangeButton {
+    width: 8rem;
+    font-weight: 900;
+    font-size: large;
+  }
+  main .container .thirdMainContent {
+    gap: 0;
+  }
+
+  footer {
+    height: auto;
+  }
+  footer .footerList {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer .footerList .footerCol p {
+    width: 100%;
+  }
+  footer .footerList :nth-child(1) {
+    width: 49%;
+  }
+  footer .footerList :nth-child(n + 2) {
+    width: 24%;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  header .container .row .col-8 nav,
+  header .container .row .col-4 .headCall {
+    display: none;
+  }
+  .topContainer .middleFirstPageContent {
+    background-size: cover;
+    background-position: 95%;
+  }
+  main .container .middleFirstPageContent div {
+    left: 41%;
+    top: 50%;
+  }
+  main .container .middleFirstPageContent div h1 {
+    width: 100%;
+    font-size: 3.5rem;
+  }
+  header .menuBar {
+    z-index: 1000;
+    display: inline-block;
+    position: absolute;
+    top: 7rem;
+    left: 3.5%;
+  }
+  main .container .flexView {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 2.5rem;
+  }
+  main .container .flexView .card {
+    width: 48%;
+  }
+  main .container .mainContent {
+    flex-direction: column;
+  }
+  main .container .thirdMainContent {
+    gap: 7rem;
+  }
+  main .container .reverseMainContent {
+    flex-direction: column-reverse;
+  }
+  main .container .mainContent div {
+    width: 100%;
+  }
+  main .orangeSection {
+    padding-bottom: 6rem;
+    height: auto;
+  }
+  footer .footerList {
+    justify-content: space-between;
+  }
+  footer .footerList .footerCol {
+    width: 40%;
+  }
+  main .container .middleFirstPageContent a {
+    width: 15.5rem;
+    height: 4.5rem;
+    font-size: 1.2rem;
+  }
+  main .container .middleFirstPageContent div #topperDiscription {
+    width: 90%;
+    font-size: 1.5rem;
+  }
+  header .container .row .col-4 .donateLink {
+    width: 15rem;
+    height: 4.2rem;
+    font-size: 1.2rem;
+    margin-right: 5rem;
+  }
+  header .container .row {
+    margin-top: 0.3rem;
+  }
+  footer .footerList .footerCol .socialMedia li a {
+    width: 4rem;
+    height: 4rem;
+  }
+  footer .footerList .footerCol .socialMedia li {
+    margin-right: 2rem;
+  }
+  footer .footerList .footerCol ul a {
+    width: 100%;
+  }
+  footer .footerList h3 {
+    font-size: 1.5rem;
+  }
+  footer .footerList .footerCol p,
+  footer .footerList .footerCol a {
+    font-size: 1.3rem;
+    width: 100%;
+  }
+  footer .footerList {
+    row-gap: 3rem;
+  }
+
+ 
+  footer .footerList .footerCol .socialMedia li i {
+    font-size: 2rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  header .container .row .col-4 .donateLink {
+    width: 33%;
+    position: absolute;
+    top: 0.8rem;
+    right: 0.1rem;
+  }
+  main .container .middleFirstPageContent div #topperDiscription {
+    width: 130%;
+  }
+  main .container .middleFirstPageContent div {
+    position: absolute;
+    top: 52%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+  }
+  main .container .middleFirstPageContent div h1 {
+    font-size: 4rem;
+  }
+  main .topContainer .middleFirstPageContent {
+    background-position: 50%;
+  }
+  main .container .mainContent {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 6rem 1.2rem;
+  }
+  main .container .reverseMainContent {
+    flex-direction: column-reverse;
+  }
+  main .container .mainContent div {
+    width: 90%;
+  }
+  main .container .mainContent img {
+    margin: 0 0 3rem 0;
+  }
+  main .container .mainContent div .buttonLinks .transButton,
+  main .container .mainContent div .buttonLinks .orangeButton {
+    width: 45%;
+    height: 4.5rem;
+    font-size: 1.2rem;
+  }
+  main .container .mainContent :nth-child(2) h2 {
+    font-size: 2.5rem;
+  }
+  main .container .flexView .cardContent {
+    min-height: 24rem;
+  }
+  main .container .thirdMainContent {
+    flex-direction: column;
+  }
+  main .container .thirdMainContent div img {
+    width: 100%;
+  }
+
+  main .movingSection .movingCards > :nth-child(1) {
+    display: none;
+  }
+  main .movingSection .movingCards > :nth-child(2) {
+    width: 85%;
+    margin: 0 auto;
+  }
+  footer .footerList :nth-child(1) {
+    width: 80%;
+  }
+  footer .footerList :nth-child(n + 2) {
+    width: 50%;
+  }
+  main .container .flexView .cardContent {
+    min-height: 25rem;
+  }
+  main .container .flexView .cardContent .cardValue {
+    flex-wrap: nowrap;
+    bottom: 1.5rem;
+    left: 1rem;
+    right: 1rem;
+    justify-content: space-between;
+  }
+  main .orangeSection h2 {
+    font-size: 2.4rem;
+  }
+  main .orangeSection ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  main .orangeSection ul li {
+    width: 45%;
+  }
+  footer {
+    padding: 3rem;
+  }
+  footer .footerList {
+    gap: 0;
+  }
+  footer .footerList :nth-child(1) {
+    width: 80%;
+  }
+  footer .footerList > :nth-child(n + 2) {
+    width: 50%;
+  }
+  footer .footerList :nth-child(3) {
+    margin: 0;
+  }
+  footer .footerList .footerCol .socialMedia li i {
+    text-align: center;
+  }
+  footer .footerList .footerCol .socialMedia li {
+    width: 3rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  header .container .row .col-4 .donateLink {
+    display: none;
+  }
+  header .container .row .col-8 h2 {
+    width: 100%;
+  }
+  main .topContainer .middleFirstPageContent {
+    background: url(../../images/gallery/main-pic-homeless-man.jpg);
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 600px !important;
+  }
+  main .container .middleFirstPageContent div {
+    left: 35%;
+    top: 56%;
+  }
+  main .container .middleFirstPageContent div h1 {
+    width: 145%;
+    font-size: 2.3rem;
+    word-spacing: -3px;
+    margin-bottom: 3rem;
+  }
+  main .container .middleFirstPageContent div #topperDiscription {
+    width: 145%;
+    font-size: 1.3rem;
+  }
+  main .container .mainContent {
+    padding: 5rem 0;
+  }
+  main .container .mainContent .orangeButton,
+  main .container .mainContent .transButton {
+    width: 12.5rem;
+    height: 4.5rem;
+    font-size: 1.2rem;
+  }
+  main h2 {
+    font-size: 1.7rem !important;
+  }
+  main .container .flexView .card {
+    font-size: medium;
+  }
+  main .container .flexView .cardContent h3 {
+    font-size: 2rem;
+  }
+  main .container .flexView .cardContent {
+    min-height: 18rem;
+  }
+  main .container .flexView .cardContent .cardValue p {
+    font-size: large;
+  }
+
+  main .movingSection .leftSideMovingSection > div {
+    display: none;
+  }
+  main .movingSection .leftSideMovingSection {
+    margin-left: 1rem;
+  }
+  main .movingSection .movingCards {
+    margin: 3rem 0 0 0;
+  }
+
+  footer .footerList .footerCol .socialMedia li {
+    margin-right: 0.8rem;
+  }
+  footer .footerList .footerCol,
+  footer .footerList :nth-child(3) ul,
+  footer .footerList :nth-child(3) ul li,
+  main .movingSection .movingCards,
+  main .container .thirdMainContent div img,
+  main .orangeSection ul li,
+  main .container .flexView .card,
+  main h2 {
+    width: 100%;
+  }
+  footer .footerList {
+    gap: 2.5rem;
+  }
+  footer .footerList .footerCol h3 {
+    font-size: 1.5rem;
+  }
+  footer .footerList .footerCol :nth-child(2) {
+    font-size: 1.1rem;
+  }
+
+  footer #copyright {
+    line-height: 2rem;
+  }
+  footer {
+    padding-bottom: 1.5rem;
+  }
+  .movingSection{
+    flex-direction: column;
+    
+  }
+  #buttonBox{
+    justify-content: left;
+    padding-left: 3rem;
+  }
+  .leftSideMovingSection{
+    padding-left: 2rem;
+  }
+  .col-4{
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  main .container .middleFirstPageContent div {
+    width: 60%;
+  }
+  /* main .topContainer .middleFirstPageContent {
+    min-height: 500px !important;
+  } */
+  main .container .mainContent div .buttonLinks {
+    flex-direction: column;
+    gap: 0rem;
+  }
+  main .container .mainContent div .buttonLinks .transButton,
+  main .container .mainContent div .buttonLinks .orangeButton {
+    margin-bottom: 0;
+  }
+  main .container .flexView .cardContent {
+    min-height: 22rem;
+  }
+  main .container .flexView .cardContent .cardValue {
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
+  main .orangeSection {
+    padding: 6rem 1rem;
+  }
+  footer {
+    padding: 5rem 1rem 1rem;
+  }
+  footer .footerList .footerCol .socialMedia li {
+    margin-right: 1.6rem;
+  }
+  footer .footerList .footerCol .socialMedia li a {
+    width: 3.8rem;
+    height: 3.8rem;
+  }
+  .orangeButton,.transButton {
+    white-space: nowrap;
+    width: auto !important;
+    margin-left: 2rem !important;
+  }
+  main .container .flexView .cardContent a{
+    padding: 0 1rem;
+  }
+}
